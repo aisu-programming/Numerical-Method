@@ -1,5 +1,14 @@
+''' Keys '''
+# A = QR
+# Q is orthogonal → Q^{-1} = Q^T
+# Ax = b   →   QRx = b   →   Q^{-1}QRx = Q^{-1}b   →   Rx = Q^{T}b
+
+
+''' Libraries '''
 import numpy as np
 
+
+''' Codes '''
 def Gram_Schmidt_orthogonalization(matrix):
     Y = np.zeros(matrix.shape)
     Q = np.zeros(matrix.shape)
@@ -18,6 +27,9 @@ def Gram_Schmidt_orthogonalization(matrix):
 
     return Q, R
 
+#   4,  8,  1
+# [ 0,  2, -2 ]
+#   3,  6,  7
 if __name__ == "__main__":
     A = np.array([
         [ 4.,  0.,  3.], # A1

@@ -1,6 +1,15 @@
-import numpy as np
-from hw3_4_LU_decomposition import get_answer
+''' Keys '''
+# x_0 = initial vector
+# (D_r(x_k)^T x D_r(x_k)) x v = -D_r(x_k)^T x r(x_k)
+# x_{k+1} = x_k + v
 
+
+''' Libraries '''
+import numpy as np
+from hw04_05_LU_decomposition import get_answer
+
+
+''' Codes '''
 x1 = -1.
 y1 = 0.
 R1 = 1.

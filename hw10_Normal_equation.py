@@ -1,8 +1,12 @@
+''' Keys '''
+# A^T x A x c = A^T x b
+# Use at periodic models or exponential models
+
+
 ''' Libraries '''
 import math
 import numpy as np
-
-from hw3_4_LU_decomposition import get_answer
+from hw04_05_LU_decomposition import get_answer
 
 
 ''' Constants '''
@@ -10,6 +14,7 @@ PI = math.pi
 
 
 ''' Codes '''
+# y = c_1 + (c_2 x cos2πt) + (c3 x sin2πt) + (c4 x cos4πt)
 def predict_1(X, Y):
     A = np.array([
         [1, math.cos(2.0*PI*(x/12)), math.sin(2.0*PI*(x/12)), math.cos(4.0*PI*(x/12))] for x in X
@@ -18,17 +23,22 @@ def predict_1(X, Y):
     pred_Y = np.dot(A, coeff)
     return coeff, pred_Y
 
+# y = c_1 x e^{c_2 x t}
 def predict_2(X, Y):
-    A = np.array([
-        [ 1, (x-1961) ] for x in X
-    ])
+    A = np.array([ [ 1, (x-1961) ] for x in X ])
     lnY = np.array([ math.log(y) for y in Y ])
     coeff = get_answer(np.dot(A.transpose(), A), np.dot(A.transpose(), lnY))
     pred_Y = np.array([ math.exp(y) for y in np.dot(A, coeff) ])
     return coeff, pred_Y
 
-def euclidean_length(predict, Y):
+# y = c_1 x e^{c_2 x t}
+def your_predict(X, Y):
     pass
+    # A = np.array([ [ 1, x ] for x in X ])
+    # lnY = np.array([ math.log(y) for y in Y ])
+    # coeff = get_answer(np.dot(A.transpose(), A), np.dot(A.transpose(), lnY))
+    # pred_Y = np.array([ math.exp(y) for y in np.dot(A, coeff) ])
+    # return coeff, pred_Y
 
 def MSE(pred_Y, Y):
     total = 0
@@ -41,7 +51,7 @@ def RMSE(pred_Y, Y):
 
 
 ''' Demonstration '''
-def question_1():
+def example_1():
     X = np.array([ i for i in range(0, 12) ])
     Y = np.array([
         6.224,
@@ -61,7 +71,7 @@ def question_1():
     print(coeff)
     print(RMSE(pred_Y, Y))
 
-def question_2():
+def example_2():
     X = np.array([ i for i in range(0, 50) ])
     Y = np.array([
         320.58,
@@ -121,6 +131,16 @@ def question_2():
     print(pred_Y)
     print(RMSE(pred_Y, Y))
 
+def your_example():
+    pass
+    # X = np.array([ i for i in range(0, 4) ])
+    # Y = np.array([ 10, 5, 2, 1 ])
+    # coeff, pred_Y = your_predict(X, Y)
+    # print(math.exp(coeff[0]), coeff[1])
+    # print(pred_Y)
+    # print(RMSE(pred_Y, Y))
+
 if __name__ == "__main__":
-    question_1()
-    # question_2()
+    # example_1()
+    # example_2()
+    your_example()
