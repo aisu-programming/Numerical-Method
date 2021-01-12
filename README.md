@@ -1,7 +1,4 @@
-# NumericalMethod
-
-## NTNU CSIE 2nd year 2nd semester elective（109-1）
-Numerical Method - Midterm & Final Exam
-
-## 師大資工大二上選修（109-1）
-數值方法 - 期中 & 期末考
+# Numerical-Method
+- NTNU CSIE 2nd year 1st semester elective (109-1) / 師大資工大二上選修 (109-1)
+- Numerical Method / 數值方法
+- Midterm & Final Exam / 期中 & 期末考
